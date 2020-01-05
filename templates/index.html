@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <style type="text/css">
+        div.container {
+            width: 500px;
+            margin: auto;
+        }
+        
+        div img#random-image {
+            width: 100%;
+        }
+        
+        div h4 {
+            text-align: center;
+        }
+        
+        div button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        
+        div button.is-enabled {
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+        }
+        
+        div button.is-disabled {
+            background-color: #e7e7e7;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h4>Random photo from the Internet</h4>
+        <div id="img-group">
+            <img id="random-image" src="https://source.unsplash.com/random" />
+        </div>
+        <button id="refreshButton" class="is-disabled" onclick="refreshImage()" style="visibility: hidden;">Refres page:
+      <span id="timerValue">5s</span></button>
+    </div>
+</body>
+<script>
+    var timerVar;
+    var timerFlag = false;
+    var imgFlag = true;
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("timerValue").dataset.tick = 5
+        var img = document.getElementById("random-image");
+        img.addEventListener('load', imageLoadedCallBack)
+
+        startTimer();
+
+    }, false);
+
+    function imageLoadedCallBack() {
+        document.getElementById("refreshButton").style.visibility = 'visible';
+    }
+
+    function startTimer() {
+        timerFlag = true;
+        timerVar = setInterval(() => {
+            timer()
+        }, 1000);
+    }
+
+    function stopTimer() {
+        timerFlag = false;
+        clearInterval(timerVar)
+    }
+
+    function timer() {
+        var timerEl = document.getElementById("timerValue");
+        var newValue = timerEl.dataset.tick--;
+        timerEl.textContent = newValue + "s"
+
+        if (newValue === 0) {
+            stopTimer();
+            var timerButton = document.getElementById("refreshButton");
+            timerButton.classList.remove("is-disabled")
+            timerButton.classList.add("is-enabled")
+        }
+    }
+
+    function refreshImage() {
+
+        if (timerFlag) {
+            return;
+        }
+
+        // Reload the page, because the code below does not update the image, it keeps from cache
+        /*
+        document.getElementById("timerValue").dataset.tick = 5
+        document.getElementById("timerValue").textContent = "5s"
+        var timerButton = document.getElementById("refreshButton");
+        timerButton.classList.remove("is-enabled")
+        timerButton.classList.add("is-disabled")
+        var img = document.getElementById("random-image");
+        img.src="https://source.unsplash.com/random";
+        startTimer();
+        */
+
+        document.location.reload(true)
+    }
+</script>
+
+</html>
