@@ -1,12 +1,12 @@
-This is personal project to get more knowledge in using Docker with AWS.
+This is personal project to get more knowledge in using Docker with AWS. \
 After running the project you will see random images which can change after couple of seconds.
 
-Dockerrun.aws.json - Docker file for AWS
-build-docker-image.sh	- Build Dockerfile command
-install-dependencies.sh	- Install python3 dependencies
+Dockerrun.aws.json - Docker file for AWS \
+build-docker-image.sh	- Build Dockerfile command \
+install-dependencies.sh	- Install python3 dependencies \
 start.sh - Run web app
 
-There is different ways to run the project with Docker. The project is uploaded to docker hub. Below are listed commands for the docker to run image with different circumstances
+There is different ways to run the project with Docker. The project is uploaded to docker hub. Below are listed commands to run docker image with different circumstances
 
 ### Build script
 ```
@@ -57,4 +57,4 @@ ip_address=$(docker inspect $docker_id | jq ".[].NetworkSettings.IPAddress")
 curl $ip_address:$app_port
 ```
 ##### Note:
-Remove double quotes from string = sed 's/"//g'
+Remove double quotes from string = ```sed 's/"//g'```
