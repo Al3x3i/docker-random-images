@@ -40,8 +40,10 @@ docker run --env "DOCKER_PORT=8800" --expose=8800 al3x3i/random-image
 app_port=8800
 ```
 #### Curl
+```
 ip_address=0.0.0.0
 curl $ip_address:$app_port
+```
 
 ##### If for some reason IP address does not work you can inspect docker image ip. Below commands
 
