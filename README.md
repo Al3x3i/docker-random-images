@@ -1,10 +1,10 @@
 This is personal project to get more knowledge in using Docker with AWS. \
 After running the project you will see random images which can change after couple of seconds.
 
-Dockerrun.aws.json - Docker file for AWS \
-build-docker-image.sh	- Build Dockerfile command \
-install-dependencies.sh	- Install python3 dependencies \
-start.sh - Run web app
+```Dockerrun.aws.json``` - Docker file for AWS \
+```build-docker-image.sh```	- Build Dockerfile command \
+```install-dependencies.sh```	- Install python3 dependencies \
+```start.sh``` - Run web app
 
 There is different ways to run the project with Docker. The project is uploaded to docker hub. Below are listed commands to run docker image with different circumstances
 
