@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     docker_port = os.environ.get("DOCKER_PORT", DEFAULT_PORT)
     
-    print("Runnion Random Web page on: {}:{}".format(DEFAULT_HOST,docker_port))
+    print("Running Random Web page on: {}:{}".format(DEFAULT_HOST,docker_port))
     app.run(host=DEFAULT_HOST, port=int(docker_port))
 
     # Use for producion
